@@ -1,6 +1,6 @@
 import 'package:bank_sha/shared/theme.dart';
-import 'package:bank_sha/ui/pages/widgets/button.dart';
-import 'package:bank_sha/ui/pages/widgets/forms.dart';
+import 'package:bank_sha/ui/widgets/button.dart';
+import 'package:bank_sha/ui/widgets/forms.dart';
 import 'package:flutter/material.dart';
 
 class SignInPage extends StatelessWidget {
@@ -75,7 +75,10 @@ class SignInPage extends StatelessWidget {
                 ),
                 CustomFilledButton(
                   title: 'Sign In',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, '/home', (route) => false);
+                  },
                 ),
               ],
             ),
@@ -86,7 +89,8 @@ class SignInPage extends StatelessWidget {
           CustomTextButton(
             title: 'Created New Account',
             onPressed: () {
-              Navigator.pushNamed(context, '/sign-up');
+              Navigator.pushNamedAndRemoveUntil(
+                  context, '/sign-up', (route) => false);
             },
           ),
         ],
