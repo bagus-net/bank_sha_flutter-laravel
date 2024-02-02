@@ -1,4 +1,6 @@
 import 'package:bank_sha/shared/theme.dart';
+import 'package:bank_sha/ui/widgets/button.dart';
+import 'package:bank_sha/ui/widgets/profile_menu_item.dart';
 
 import 'package:flutter/material.dart';
 
@@ -30,7 +32,7 @@ class ProfilePage extends StatelessWidget {
         ),
         children: [
           const SizedBox(
-            height: 40,
+            height: 30,
           ),
           Container(
             padding: const EdgeInsets.symmetric(
@@ -86,28 +88,48 @@ class ProfilePage extends StatelessWidget {
                 const SizedBox(
                   height: 40,
                 ),
-                // ProfileMenuItem(
-                //   iconUrl: 'ic_edit_profile.png',
-                //   title: 'Edit Profile',
-                //   onTap: () {},
-                // ),
-                // ProfileMenuItem(
-                //   iconUrl: 'ic_edit_profile.png',
-                //   title: 'Edit Profile',
-                //   onTap: () {},
-                // ),
-                // ProfileMenuItem(
-                //   iconUrl: 'ic_edit_profile.png',
-                //   title: 'Edit Profile',
-                //   onTap: () {},
-                // ),
-                // ProfileMenuItem(
-                //   iconUrl: 'ic_edit_profile.png',
-                //   title: 'Edit Profile',
-                //   onTap: () {},
-                // ),
+                ProfileMenuItem(
+                  iconUrl: 'assets/ic_edit_profile.png',
+                  title: 'Edit Profile',
+                  onTap: () {},
+                ),
+                ProfileMenuItem(
+                  iconUrl: 'assets/ic_pin.png',
+                  title: 'My Pin',
+                  onTap: () {},
+                ),
+                ProfileMenuItem(
+                  iconUrl: 'assets/ic_wallet.png',
+                  title: 'Wallet Settings',
+                  onTap: () {},
+                ),
+                ProfileMenuItem(
+                  iconUrl: 'assets/ic_my_rewards.png',
+                  title: 'My Rewards',
+                  onTap: () {},
+                ),
+                ProfileMenuItem(
+                  iconUrl: 'assets/ic_help.png',
+                  title: 'Help Center',
+                  onTap: () {},
+                ),
+                ProfileMenuItem(
+                  iconUrl: 'assets/ic_logout.png',
+                  title: 'Log Out',
+                  onTap: () {},
+                ),
               ],
             ),
+          ),
+          const SizedBox(
+            height: 87,
+          ),
+          CustomTextButton(
+            title: 'Report a Problem',
+            onPressed: () {},
+          ),
+          const SizedBox(
+            height: 50,
           ),
         ],
       ),

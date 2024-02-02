@@ -28,7 +28,7 @@ class HomeLatestTransactionItem extends StatelessWidget {
             width: 48,
           ),
           const SizedBox(
-            height: 16,
+            width: 16,
           ),
           Expanded(
             child: Column(
