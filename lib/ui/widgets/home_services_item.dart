@@ -7,11 +7,11 @@ class HomeServicesItem extends StatelessWidget {
   final VoidCallback? onTab;
 
   const HomeServicesItem({
-    Key? key,
+    super.key,
     required this.iconUrl,
     required this.title,
     this.onTab,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
