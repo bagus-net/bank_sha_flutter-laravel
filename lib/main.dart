@@ -12,6 +12,12 @@ import 'package:bank_sha/ui/pages/sign_up_set_ktp.dart';
 import 'package:bank_sha/ui/pages/sign_up_set_profile.dart';
 import 'package:bank_sha/ui/pages/sign_up_success_page.dart';
 import 'package:bank_sha/ui/pages/splash_page.dart';
+import 'package:bank_sha/ui/pages/topup_amount_page.dart';
+import 'package:bank_sha/ui/pages/topup_page.dart';
+import 'package:bank_sha/ui/pages/topup_success.dart';
+import 'package:bank_sha/ui/pages/transfer_amount_page.dart';
+import 'package:bank_sha/ui/pages/transfer_page.dart';
+import 'package:bank_sha/ui/pages/transfer_success.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -58,6 +64,15 @@ class MyApp extends StatelessWidget {
         '/profile-edit': (context) => const ProfileEditPage(),
         '/profile-edit-pin': (context) => const ProfileEditPinPage(),
         '/profile-edit-success': (context) => const ProfileEditSuccessPage(),
+        //TOP UP FLOW
+        '/topup': (context) => const TopupPage(),
+        '/topup-amount': (context) => const TopupAmountPage(),
+        '/topup-success': (context) => const TopupSuccessPage(),
+
+        //TRANSFER FLOW
+        '/transfer': (context) => const TransferPage(),
+        '/transfer-amount': (context) => const TransferAmountPage(),
+        '/transfer-success': (context) => const TransferSuccessPage(),
       },
     );
   }
