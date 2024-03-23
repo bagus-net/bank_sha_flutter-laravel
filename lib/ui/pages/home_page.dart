@@ -123,7 +123,7 @@ class HomePage extends StatelessWidget {
                 height: 2,
               ),
               Text(
-                'shaynahan',
+                'Bagus',
                 style: blackTextStyle.copyWith(
                   fontSize: 20,
                   fontWeight: semiBold,
@@ -191,7 +191,7 @@ class HomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Shayna Hanna',
+            'Bagus Setyawan',
             style: whiteTextStyle.copyWith(
               fontSize: 18,
               fontWeight: medium,
