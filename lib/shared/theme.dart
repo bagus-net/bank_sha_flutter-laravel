@@ -7,6 +7,7 @@ Color greyColor = const Color(0xffA4A8AE);
 Color lightBackgroundColor = const Color(0xffF6F8FB);
 Color darkBackgroundColor = const Color(0xff020518);
 Color purpleColor = const Color(0xff5142E6);
+Color orangeColor = const Color(0xffFF6B5A);
 Color blueColor = const Color(0xff53C1F9);
 Color greenColor = const Color(0xff22B07D);
 Color redColor = const Color(0xffFF2566);

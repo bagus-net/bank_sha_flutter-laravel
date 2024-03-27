@@ -39,7 +39,7 @@ class ProfileEditSuccessPage extends StatelessWidget {
               title: 'My Profile',
               onPressed: () {
                 Navigator.pushNamedAndRemoveUntil(
-                    context, '/profile', (route) => false);
+                    context, '/home', (route) => false);
               },
             ),
           ],

@@ -72,7 +72,7 @@ class HomePage extends StatelessWidget {
         height: 48,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: purpleColor,
+          color: orangeColor,
         ),
         child: FloatingActionButton(
           onPressed: () {},
@@ -80,7 +80,7 @@ class HomePage extends StatelessWidget {
               .transparent, // Set background color of FloatingActionButton to transparent
           child: Image.asset(
             'assets/ic_plus_circle.png',
-            width: 24,
+            width: 26,
           ),
         ),
       ),
