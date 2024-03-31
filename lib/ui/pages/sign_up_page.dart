@@ -4,6 +4,9 @@ import 'package:bank_sha/ui/widgets/button.dart';
 import 'package:bank_sha/ui/widgets/forms.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../blocs/auth/auth_bloc.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -29,97 +32,108 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 24,
-        ),
-        children: [
-          Container(
-            width: 155,
-            height: 50,
-            margin: const EdgeInsets.only(
-              top: 100,
-              bottom: 100,
+      body: BlocConsumer<AuthBloc, AuthState>(
+        listener: (context, state) {
+          if (state is AuthFailed) {
+            showCustomSnackbar(context, state.e);
+          }
+          if (state is AuthCheckEmailSuccess)
+        },
+        builder: (context, state) {
+          return ListView(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24,
             ),
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                  'assets/img_logo_light.png',
+            children: [
+              Container(
+                width: 155,
+                height: 50,
+                margin: const EdgeInsets.only(
+                  top: 100,
+                  bottom: 100,
+                ),
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                      'assets/img_logo_light.png',
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
-          Text(
-            'Join Us to Unlock\nYour Growth',
-            style: blackTextStyle.copyWith(
-              fontSize: 20,
-              fontWeight: semiBold,
-            ),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          Container(
-            padding: const EdgeInsets.all(22),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: whiteColor,
-            ),
-            child: Column(
-              children: [
-                //NOTE EMAIL INPUT
-                CustomFormField(
-                  title: 'Full Name',
-                  controller: nameController,
+              Text(
+                'Join Us to Unlock\nYour Growth',
+                style: blackTextStyle.copyWith(
+                  fontSize: 20,
+                  fontWeight: semiBold,
                 ),
-                const SizedBox(
-                  height: 8,
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Container(
+                padding: const EdgeInsets.all(22),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: whiteColor,
                 ),
-                //NOTE password INPUT
-                CustomFormField(
-                  title: 'Email Address',
-                  controller: emailController,
-                ),
+                child: Column(
+                  children: [
+                    //NOTE EMAIL INPUT
+                    CustomFormField(
+                      title: 'Full Name',
+                      controller: nameController,
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    //NOTE password INPUT
+                    CustomFormField(
+                      title: 'Email Address',
+                      controller: emailController,
+                    ),
 
-                const SizedBox(
-                  height: 8,
-                ),
-                //NOTE password INPUT
-                CustomFormField(
-                  title: 'Password',
-                  obscureText: true,
-                  controller: passwordController,
-                ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    //NOTE password INPUT
+                    CustomFormField(
+                      title: 'Password',
+                      obscureText: true,
+                      controller: passwordController,
+                    ),
 
-                const SizedBox(
-                  height: 30,
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    CustomFilledButton(
+                      title: 'Continue',
+                      onPressed: () {
+                        if (validate()) {
+                          Navigator.pushNamed(context, '/sign-up-set-profile');
+                        } else {
+                          showCustomSnackbar(
+                              context, 'Semua field harus diisi');
+                        }
+                      },
+                    ),
+                  ],
                 ),
-                CustomFilledButton(
-                  title: 'Continue',
-                  onPressed: () {
-                    if (validate()) {
-                      Navigator.pushNamed(context, '/sign-up-set-profile');
-                    } else {
-                      showCustomSnackbar(context, 'Semua field harus diisi');
-                    }
-                  },
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 50,
-          ),
-          CustomTextButton(
-            title: 'Sign In',
-            onPressed: () {
-              Navigator.pushNamed(context, '/sign-in');
-            },
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-        ],
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              CustomTextButton(
+                title: 'Sign In',
+                onPressed: () {
+                  Navigator.pushNamed(context, '/sign-in');
+                },
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+            ],
+          );
+        },
       ),
     );
   }
